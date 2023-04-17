@@ -74,4 +74,4 @@ jobs:
         sudo apt install lftp
     - name: Running Script 
       run: |
-        lftp -P 9090 -e "mirror -R ./build/ /home/paisarewards/sftp/build/" -u testuser,testpassword 45.142.237.166
+        lftp -e "mirror -R ./build/ /home/paisarewards/sftp/build/" sftp://testuser@45.142.237.166:9090
