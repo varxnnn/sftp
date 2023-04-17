@@ -3,7 +3,7 @@ USER=testuser
 PASSWD=testpassword
 
 cd /home/runner/work/sftp/sftp
-ls -l
+ls -l build
 chmod -R 665 build
 
 lftp<<END_SCRIPT
