@@ -74,4 +74,4 @@ jobs:
         sudo apt install lftp
     - name: Running Script 
       run: |
-        lftp -e "mirror -R ./build/ /home/paisarewards/sftp/build/" -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null sftp://testuser@45.142.237.166:9090
+        lftp -e "set sftp:auto-confirm yes;set ssl:verify-certificate no;mirror -R ./build/ /home/paisarewards/sftp/build/" sftp://testuser@45.142.237.166:9090
