@@ -17,20 +17,18 @@ SFTP_PORT=22
 ```
 - Create docker-compose.yml
 ```yaml
-version: '3.7'
-
+---
 services:
   sftp:
-    image: ${SFTP_IMAGE}:${SFTP_VERSION}
+    image: atmoz/sftp:alpine
     container_name: sftp
     restart: always
-    expose:
-      - "${SFTP_PORT}"
     ports:
-      - "${<whatever host port u want>}:${SFTP_PORT}"
+      - "${SFTP_PORT}:22"
     command:
       - ${SFTP_USERNAME}:${SFTP_PASSWORD}:1001::${DATA_STORE}   # syntax: user:password[:e][:uid[:gid[:dir1[,dir2]...]]]
     volumes:
+      - ./${DATA_STORE}:/home/${SFTP_USERNAME}/${DATA_STORE}
       - ./keys/ssh_host_rsa_key.pub:/home/${SFTP_USERNAME}/.ssh/ssh_host_rsa_key.pub:ro
       - ./keys/ssh_host_ed25519_key.pub:/home/${SFTP_USERNAME}/.ssh/ssh_host_ed25519_key.pub:ro
 ```
