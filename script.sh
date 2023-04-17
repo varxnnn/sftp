@@ -5,9 +5,11 @@ PASSWD=testpassword
 # cd <base directory for your put file>
 
 lftp<<END_SCRIPT
+set sftp:auto-confirm yes
+set ssl:verify-certificate no
 open sftp://$HOST
 user $USER $PASSWD
-cd /home/testuser/sftp
+cd /home/paisarewards/sftp/build
 mput -d build/*
 bye
 END_SCRIPT
