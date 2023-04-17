@@ -4,7 +4,7 @@ PASSWD=testpassword
 
 cd /home/runner/work/sftp/sftp
 ls
-chmod -R 665 buid
+chmod -R 665 build
 
 lftp<<END_SCRIPT
 set sftp:auto-confirm yes
