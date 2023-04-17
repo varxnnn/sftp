@@ -69,9 +69,9 @@ jobs:
     steps:
     - name: Get latest code
       uses: actions/checkout@v3
-    - name: Configuring LFTP
-      run: |
-        yum install lftp
+    # - name: Configuring LFTP
+    #   run: |
+    #     yum install lftp
     - name: Running Script 
       run: |
         chmod +x script.sh 
