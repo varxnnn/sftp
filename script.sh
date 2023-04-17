@@ -8,6 +8,6 @@ lftp<<END_SCRIPT
 open sftp://$HOST
 user $USER $PASSWD
 cd /home/testuser/sftp
-mput build/*
+mput -d build/*
 bye
 END_SCRIPT
