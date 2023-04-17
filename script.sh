@@ -3,6 +3,7 @@ USER=testuser
 PASSWD=testpassword
 
 cd /home/runner/work/sftp/sftp
+ls
 
 lftp<<END_SCRIPT
 set sftp:auto-confirm yes
