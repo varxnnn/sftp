@@ -9,8 +9,7 @@ set sftp:auto-confirm yes
 set ssl:verify-certificate no
 open sftp://$HOST
 user $USER $PASSWD
-mkdir -p /home/paisarewards/sftp/build
-cd /home/paisarewards/sftp/build
+cd /home/testuser/build
 mput -d build/*
 bye
 END_SCRIPT
