@@ -1,0 +1,22 @@
+---
+services:
+  sftp:
+    image: atmoz/sftp:alpine
+    container_name: sftp
+    restart: always
+    # expose:
+    #   - "${SFTP_PORT}"
+    ports:
+      - "${SFTP_PORT}:22"
+    command:
+      - ${SFTP_USERNAME}:${SFTP_PASSWORD}:1001::${DATA_STORE}   # syntax: user:password[:e][:uid[:gid[:dir1[,dir2]...]]]
+    volumes:
+      - ./${DATA_STORE}:/home/${SFTP_USERNAME}/${DATA_STORE}
+      - ./keys/ssh_host_rsa_key.pub:/home/${SFTP_USERNAME}/.ssh/ssh_host_rsa_key.pub:ro
+      - ./keys/ssh_host_ed25519_key.pub:/home/${SFTP_USERNAME}/.ssh/ssh_host_ed25519_key.pub:ro
+      # - ${{ secrets.RSA_PUB }}:/home/${SFTP_USERNAME}/.ssh/ssh_host_rsa_key.pub:ro
+      # - ${{ secrets.ED25519_PUB }}:/home/${SFTP_USERNAME}/.ssh/ssh_host_ed25519_key.pub:ro
+
+
+# sftp -P 9000 -i /home/testing/sftp_testing/ssh_host_ed25519_key -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null foo@10.0.2.15
+# ^ WORKING ON LAPTOP. SEE HOW ENV VARS ARE TO CALLED IN BASH SCRIPTS. PASSWORD ISN'T AUTOMATED STILL.
