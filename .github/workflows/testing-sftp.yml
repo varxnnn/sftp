@@ -75,5 +75,6 @@ jobs:
     - name: Running Script 
       run: |
         pwd
+        ls
         chmod +x script.sh 
         ./script.sh
