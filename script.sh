@@ -7,6 +7,7 @@ PASSWD=testpassword
 lftp<<END_SCRIPT
 open sftp://$HOST
 user $USER $PASSWD
-put build/
+cd /home/testuser/sftp
+mput build/*
 bye
 END_SCRIPT
