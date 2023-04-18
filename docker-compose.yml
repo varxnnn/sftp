@@ -9,9 +9,8 @@ services:
     ports:
       - "${SFTP_PORT}:22"
     command:
-      - ${SFTP_USERNAME}:${SFTP_PASSWORD}:1001::${DATA_STORE}   # syntax: user:password[:e][:uid[:gid[:dir1[,dir2]...]]]
+      - ${SFTP_USERNAME}::0::${DATA_STORE}   # syntax: user:password[:e][:uid[:gid[:dir1[,dir2]...]]]
     volumes:
-      - ./${DATA_STORE}:/home/${SFTP_USERNAME}/${DATA_STORE}
       - ./keys/ssh_host_rsa_key.pub:/home/${SFTP_USERNAME}/.ssh/ssh_host_rsa_key.pub:ro
       - ./keys/ssh_host_ed25519_key.pub:/home/${SFTP_USERNAME}/.ssh/ssh_host_ed25519_key.pub:ro
       # - ${{ secrets.RSA_PUB }}:/home/${SFTP_USERNAME}/.ssh/ssh_host_rsa_key.pub:ro
