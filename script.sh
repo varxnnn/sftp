@@ -14,7 +14,8 @@ set ssl:verify-certificate no
 set ftp:use-allo false
 set ftp:passive-mode true
 set ftp:prefer-epsv false
-open sftp://$ROOT@$HOST
+open sftp://$USER@$HOST
+user $USER ""
 mput -d $TARGET build/* 
 bye
 END_SCRIPT
