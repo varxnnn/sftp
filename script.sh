@@ -20,6 +20,7 @@ mirror -R \
        --exclude-glob .svn/ \
        --exclude-glob .DS_Store/ \
        --exclude-glob ._* \
-       --exclude-glob Thumbs.db/ .
+       --exclude-glob Thumbs.db/ \
+       ./build/*
 bye
 END_SCRIPT
