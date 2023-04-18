@@ -1,4 +1,4 @@
-HOST=45.142.237.166
+HOST=45.142.237.166:9090
 USER=testuser
 PASSWD=testpassword
 
