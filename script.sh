@@ -1,13 +1,14 @@
 HOST=45.142.237.166:9090
-USER=root
-PASSWD= 
+USER=testuser
+PASSWD=testpassword
 TARGET=/home/testuser/build
 
 cd /home/runner/work/sftp/sftp
-ls -l build
-chown -R $USER build
-chmod -R 777 build/*
-ls -l build
+# ls -l build
+# chown -R $USER build
+# chmod -R 777 build/*
+# ls -l 
+ls 
 
 lftp<<END_SCRIPT
 set sftp:auto-confirm yes
