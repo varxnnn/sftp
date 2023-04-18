@@ -10,6 +10,16 @@ set ftp:passive-mode true
 set ftp:prefer-epsv false
 open sftp://$USER:$PASSWD@$HOST
 user $USER $PASSWD
-mput -d build/* 
+mirror -R \
+       --delete \
+       --only-newer \
+       --no-perms \
+       --no-umask \
+       --parallel=5 \
+       --exclude-glob .git/ \
+       --exclude-glob .svn/ \
+       --exclude-glob .DS_Store/ \
+       --exclude-glob ._* \
+       --exclude-glob Thumbs.db/ .
 bye
 END_SCRIPT
