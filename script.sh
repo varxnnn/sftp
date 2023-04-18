@@ -24,7 +24,8 @@ mirror -R \
        ./build/*.zip
 
 # Transfer the zip file separately
-put -v ./build/artifacts.zip
+put help
+# -v ./build/artifacts.zip
 
 bye
 END_SCRIPT
