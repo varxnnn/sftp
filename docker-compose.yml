@@ -1,10 +1,10 @@
 ---
 services:
   sftp:
-    build:
-      context: .
-      dockerfile: dockerfile
-    # image: ${SFTP_IMAGE}:${SFTP_VERSION}
+    # build:
+    #   context: .
+    #   dockerfile: dockerfile
+    image: ${SFTP_IMAGE}:${SFTP_VERSION}
     container_name: sftp
     restart: always
     # user: ${SFTP_USERNAME}
@@ -12,6 +12,8 @@ services:
       - "${SFTP_PORT}:22"
     command:
       - ${SFTP_USERNAME}:${SFTP_PASSWORD}:1001::${TARGET}   # syntax: user:password[:e][:uid[:gid[:dir1[,dir2]...]]]
+      # - mkdir ${TARGET}
+      # - chown -R ${SFTP_USERNAME} ${TARGET}
     volumes:
       - ./keys/ssh_host_rsa_key.pub:/home/${SFTP_USERNAME}/.ssh/ssh_host_rsa_key.pub:ro
       - ./keys/ssh_host_ed25519_key.pub:/home/${SFTP_USERNAME}/.ssh/ssh_host_ed25519_key.pub:ro
@@ -19,5 +21,5 @@ services:
       # - ${{ secrets.ED25519_PUB }}:/home/${SFTP_USERNAME}/.ssh/ssh_host_ed25519_key.pub:ro
 
 
-# sftp -P 9000 -i /home/testing/sftp_testing/ssh_host_ed25519_key -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null foo@10.0.2.15
+# sftp -P 9000 -i /home/testing/sftp_testing/ssh_host_ed25519_key -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null testuser@45.142.237.166
 # ^ WORKING ON LAPTOP. SEE HOW ENV VARS ARE TO CALLED IN BASH SCRIPTS. PASSWORD ISN'T AUTOMATED STILL.

@@ -18,6 +18,6 @@ set ftp:passive-mode true
 set ftp:prefer-epsv false
 open sftp://$USER:$PASSWD@$HOST
 user $USER $PASSWD
-mput -d $TARGET build/* 
+mput -d build/* 
 bye
 END_SCRIPT
