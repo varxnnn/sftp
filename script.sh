@@ -21,10 +21,11 @@ mirror -R \
        --exclude-glob ._* \
        --exclude-glob Thumbs.db/ \
        --verbose \
-       ./build/*.zip
+       ./build/
 
 # Transfer the zip file separately
-help put
+set ftp:debug true
+put ./build/*.zip
 # -v ./build/artifacts.zip
 
 bye
