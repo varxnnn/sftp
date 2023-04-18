@@ -1,10 +1,13 @@
 ---
 services:
   sftp:
-    image: ${SFTP_IMAGE}:${SFTP_VERSION}
+    build:
+      context: .
+      dockerfile: dockerfile
+    # image: ${SFTP_IMAGE}:${SFTP_VERSION}
     container_name: sftp
     restart: always
-    user: ${SFTP_USERNAME}
+    # user: ${SFTP_USERNAME}
     ports:
       - "${SFTP_PORT}:22"
     command:
