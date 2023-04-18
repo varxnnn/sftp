@@ -1,4 +1,4 @@
-HOST=server ip
+HOST=45.142.237.166
 USER=testuser
 PASSWD=testpassword
 
