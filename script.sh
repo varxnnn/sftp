@@ -21,6 +21,7 @@ mirror -R \
        --exclude-glob .DS_Store/ \
        --exclude-glob ._* \
        --exclude-glob Thumbs.db/ \
+       --verbose \
        ./build/
 bye
 END_SCRIPT
