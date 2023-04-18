@@ -1,5 +1,6 @@
 HOST=45.142.237.166:9090
 USER=root
+PASSWD= 
 TARGET=/home/testuser/build
 
 cd /home/runner/work/sftp/sftp
@@ -14,8 +15,8 @@ set ssl:verify-certificate no
 set ftp:use-allo false
 set ftp:passive-mode true
 set ftp:prefer-epsv false
-open sftp://$USER@$HOST
-user $USER ""
+open sftp://$USER:$PASSWD@$HOST
+user $USER $PASSWD
 mput -d $TARGET build/* 
 bye
 END_SCRIPT
