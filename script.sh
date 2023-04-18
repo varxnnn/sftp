@@ -1,9 +1,10 @@
-HOST=45.142.237.166:9090
+HOST=server ip
 USER=testuser
 PASSWD=testpassword
 
 cd /home/runner/work/sftp/sftp
 ls -l build
+chown -R $USER build
 chmod -R 777 build/*
 ls -l build
 
