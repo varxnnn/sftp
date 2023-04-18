@@ -25,8 +25,7 @@ mirror -R \
 
 # Transfer the zip file separately
 set ftp:debug true
-put ./build/*.zip
-# -v ./build/artifacts.zip
+put ./build/artifacts.zip
 
 bye
 END_SCRIPT
