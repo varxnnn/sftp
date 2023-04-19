@@ -12,7 +12,7 @@ env:
 
 jobs:
   transferring_files:
-    name: Transferring files
+    name: Transferring files with SFTP
     runs-on: ubuntu-latest
     steps:
       # Getting Latest code
