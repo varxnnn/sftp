@@ -29,9 +29,10 @@ jobs:
       # Running script.sh
     - name: Running Script 
       run: |
-        echo "Updating perms of build"
         chmod 765 build                 
-        echo "Updated"
+        echo "Updated Perms of Build"
+        echo "-----------------------------------------------------------------------------------------------------------------"
+        echo "Executing script:"
         chmod +x script.sh 
         ./script.sh
       # We also boost the perms of the build folder, 

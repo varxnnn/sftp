@@ -45,9 +45,9 @@ services:
 ```
 - Then, we run the following script:
 ```bash
-HOST=<IP:/port>
-USER=<SFTP_USERNAME>
-PASSWD=<SFTP_PASSWORD>
+HOST=$sftp_host           # See script.sh for more deets (:
+USER=$sftp_user
+PASSWD=$sftp_password
 
 lftp<<END_SCRIPT
 set sftp:auto-confirm yes
