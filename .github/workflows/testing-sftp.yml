@@ -78,7 +78,7 @@ jobs:
       run: |
         ls -l
         echo "Updating perms of build"
-        chmod 665 build
+        chmod 766 build
         echo "Updated"
         ls -l
         chmod +x script.sh 
