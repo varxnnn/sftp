@@ -36,8 +36,9 @@ services:
     ports:
       - "${SFTP_PORT}:22"
     command:
-      - ${SFTP_USERNAME}:${SFTP_PASSWORD}:1001::${TARGET}
+      - ${SFTP_USERNAME}:${SFTP_PASSWORD}:::${TARGET}
     volumes:
+      - /path/to/folder/on/host/where/you/want/the/files:/home/${SFTP_USERNAME}/${TARGET}:rw,Z
       - ./keys/ssh_host_rsa_key.pub:/home/${SFTP_USERNAME}/.ssh/ssh_host_rsa_key.pub:ro
       - ./keys/ssh_host_ed25519_key.pub:/home/${SFTP_USERNAME}/.ssh/ssh_host_ed25519_key.pub:ro
 ```
@@ -56,6 +57,7 @@ set ftp:prefer-epsv false
 open sftp://$USER:$PASSWD@$HOST
 user $USER $PASSWD
 mirror -R \
+       --delete \
        --only-newer \
        --no-perms \
        --no-umask \
@@ -71,3 +73,4 @@ bye
 END_SCRIPT
 ```
 This will MIRROR the contents of the local `build` folder to the **TARGET** specified in the `.env` file. 
+**MAKE SURE THAT THE TARGET FOLDER INSIDE THE CONTAINER AND THE HOST DIRECTORY YOU'LL MOUNT TO THAT TARGET DIRECTORY HAVE ADEQUATE ACCESS PERMISSIONS.**

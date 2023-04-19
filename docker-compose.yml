@@ -9,7 +9,7 @@ services:
     command:
       - ${SFTP_USERNAME}:${SFTP_PASSWORD}:::${TARGET}       # syntax: user:password[:e][:uid[:gid[:dir1[,dir2]...]]]
     volumes:
-      - ./files:/home/${SFTP_USERNAME}/build:rw,Z
+      - ./files:/home/${SFTP_USERNAME}/${TARGET}:rw,Z
       - ./keys/ssh_host_rsa_key.pub:/home/${SFTP_USERNAME}/.ssh/ssh_host_rsa_key.pub:ro
       - ./keys/ssh_host_ed25519_key.pub:/home/${SFTP_USERNAME}/.ssh/ssh_host_ed25519_key.pub:ro
 
