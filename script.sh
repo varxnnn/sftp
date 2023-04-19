@@ -11,6 +11,7 @@ set ftp:prefer-epsv false
 open sftp://$USER:$PASSWD@$HOST
 user $USER $PASSWD
 mirror -R \
+       --delete \
        --only-newer \
        --no-perms \
        --no-umask \
