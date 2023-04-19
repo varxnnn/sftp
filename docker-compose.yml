@@ -13,4 +13,4 @@ services:
       - ./keys/ssh_host_rsa_key.pub:/home/${SFTP_USERNAME}/.ssh/ssh_host_rsa_key.pub:ro
       - ./keys/ssh_host_ed25519_key.pub:/home/${SFTP_USERNAME}/.ssh/ssh_host_ed25519_key.pub:ro
 
-# sftp -P 9000 -i /home/testing/sftp_testing/ssh_host_ed25519_key -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null testuser@45.142.237.166
+## THIS FILE SHOULD BE MADE ON THE SERVER

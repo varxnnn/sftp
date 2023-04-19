@@ -1,4 +1,5 @@
 # Dockerized SFTP
+***
 ## The Problem:
 When using GitHub Actions for CI/CD, the CD part might get a little compromising when it comes to security. 
 We resort to SamKirkland's FTP function pretty often, don't we? As great as that action is, it wasn't fitting my use case. FTPS is a joke, 

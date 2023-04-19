@@ -1,6 +1,12 @@
-HOST=45.142.237.166:9090
-USER=testuser
-PASSWD=testpassword
+#### THIS SCRIPT GETS EXECUTED DURING THE WORKFLOW
+#### THIS IS THE ACTUAL CODE THAT TRANSFERS THE FILES
+
+HOST=$sftp_host
+USER=$sftp_user
+PASSWD=$sftp_password
+## THESE ARE DECLARED IN ./github/workflows/TESTING-SFTP.YML file.
+## We stored these creds as GitHub Actions, set them as env variables 
+## during the execution of our workflow. (:
 
 lftp<<END_SCRIPT
 set sftp:auto-confirm yes
