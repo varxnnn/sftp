@@ -22,6 +22,5 @@ mirror -R \
        --exclude-glob Thumbs.db/ \
        --verbose \
        ./build/
-ls
 bye
 END_SCRIPT
