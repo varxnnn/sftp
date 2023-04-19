@@ -1,14 +1,15 @@
 ---
 services:
   sftp:
-    image: ${SFTP_IMAGE}:${SFTP_VERSION}
     container_name: sftp
+    image: ${SFTP_IMAGE}:${SFTP_VERSION}
     restart: always
     ports:
       - "${SFTP_PORT}:22"
     command:
-      - ${SFTP_USERNAME}:${SFTP_PASSWORD}:1001::${TARGET}
+      - ${SFTP_USERNAME}:${SFTP_PASSWORD}:::${TARGET}       # syntax: user:password[:e][:uid[:gid[:dir1[,dir2]...]]]
     volumes:
+      - ./files:/home/${SFTP_USERNAME}/build:rw,Z
       - ./keys/ssh_host_rsa_key.pub:/home/${SFTP_USERNAME}/.ssh/ssh_host_rsa_key.pub:ro
       - ./keys/ssh_host_ed25519_key.pub:/home/${SFTP_USERNAME}/.ssh/ssh_host_ed25519_key.pub:ro
 
